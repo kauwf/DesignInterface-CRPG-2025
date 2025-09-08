@@ -78,3 +78,55 @@ footer {
     transform: scale(1.05);
     box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }
+/* Estiliza os links como botões */
+.filial a {
+    display: inline-flex;
+    align-items: center;
+    background-color: #0055a5; /* cor azul IFPR */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.filial a:hover {
+    background-color: #003d73;
+}
+
+/* Remove o estilo padrão do ícone para ficar alinhado */
+.filial a i {
+    margin-right: 8px;
+}
+
+/* Fundo com texto IFPR */
+body {
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "IFPR";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    font-size: 15vw;
+    font-weight: 900;
+    color: rgba(0, 85, 165, 0.1); /* azul claro transparente */
+    z-index: 0;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Para garantir que o conteúdo fique acima do fundo */
+header, main, footer {
+    position: relative;
+    z-index: 1;
+}
