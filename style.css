@@ -130,3 +130,15 @@ header, main, footer {
     position: relative;
     z-index: 1;
 }
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0055a5; /* cor azul IFPR */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    z-index: 2; /* para ficar acima do fundo IFPR */
+}
