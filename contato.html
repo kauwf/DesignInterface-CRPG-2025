@@ -15,7 +15,7 @@
         <h2>ESTUDIO DPA</h2>
         <nav>
             <a href="index.html">Início</a>
-            <a href="filiais.html">Filiais</a>
+            <a href="filiais.html">Feedback</a>
             <a href="contato.html">Contato</a>
         </nav>
     </header>
@@ -23,7 +23,7 @@
     <!-- Conteúdo principal -->
     <main>
         <h1>Entre em Contato</h1>
-        <form class="contato-form">
+        <form class="contato-form" action="action_contato.php" method="POST">
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
 
@@ -33,6 +33,9 @@
             <label for="mensagem">Mensagem:</label>
             <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem"></textarea>
 
+            <label for="Tell">Telefone:</label>
+            <input type="text" id="nome" name="nome">
+            
             <button type="submit">Enviar</button>
         </form>
     </main>
