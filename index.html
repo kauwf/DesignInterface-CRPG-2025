@@ -21,23 +21,61 @@
         </nav>
     </header>
 
-    <!-- Conteúdo principal -->
-    <main>
-        <h1>Bem-vindo</h1>
-        <p>Encontre a arte ideal pra sua torcida.</p>
+main>
+  <h1>Bem-vindo à Locadora de Veículos</h1>
+  <p>Encontre o carro ideal para sua viagem, trabalho ou lazer.</p>
 
-        <div class="carros">
-            <img src="https://scontent.fpoa10-1.fna.fbcdn.net/v/t1.15752-9/541246960_1844721892742544_6614553795424946443_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=0024fc&_nc_ohc=vPMwWhYJQ3UQ7kNvwEEwx8w&_nc_oc=Adk6YUXUDSf0YGa-c1c5Vkw2u8FR3jwsRfCnyW0wrVI8848PgK39l1NczntoOpHZRKjHsWb0RCuALdQAdpPR34n_&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fpoa10-1.fna&oh=03_Q7cD3QFvuDAYvm6c2She8y6mBb5ZquOBhfdzZ56qKN_izpqcaA&oe=68F112BA"
-                alt="">
+  <div id="conteudo" class="conteudo-scroll">
+    <p>Carregando conteúdo...</p>
+  </div>
+</main>
 
-            <img src="https://cdn.fbsbx.com/v/t59.2708-21/545171256_24382634818072827_8256901105662376186_n.gif?_nc_cat=108&ccb=1-7&_nc_sid=66e727&_nc_ohc=R2Kvh4gl9gMQ7kNvwH2u_Fh&_nc_oc=AdkLqU_jRR1GEwYuHyQllvaLAak5x4ReO1la1vi1jjqFbMNEMkQMZqLmfac2UIE1LifWmg22NrvaHm4E8a3sjsZC&_nc_zt=7&_nc_ht=cdn.fbsbx.com&_nc_gid=eT5KuUbjW9o1m3yvZAyECQ&oh=03_Q7cD3QF-te_ZHzqK6lCV78YOFO4s9UMPOxH6wxjL2xarhBCRfw&oe=68CB8D6E"
-                alt="">
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzvaTI6Dn3_AHHLhzYO8tO3g6nmNAwUeX8v7HRwGizG-yUlyub4yVbDo5dzkYcYPF4/exec"; // substitua pela URL do seu Apps Script
+async function carregarConteudo() {
+  const container = document.getElementById('conteudo');
+  container.innerHTML = "<p>Carregando conteúdo...</p>";
 
-            <img src="https://i.postimg.cc/h4CM3RHZ/UNIAO-DPA.gif"
-                alt="">
-                
-        </div>
-    </main>
+  try {
+    const res = await fetch(SCRIPT_URL);
+    const dados = await res.json();
+    container.innerHTML = '';
+
+    dados.forEach(item => {
+      const bloco = document.createElement('div');
+      bloco.className = 'bloco-item';
+
+      const titulo = document.createElement('h2');
+      titulo.textContent = item.Título || '';
+      bloco.appendChild(titulo);
+
+      const descricao = document.createElement('p');
+      descricao.textContent = item.Descrição || '';
+      bloco.appendChild(descricao);
+
+      if (item.Url && item.Url.startsWith('http')) {
+        if (item.Url.match(/\.(jpg|jpeg|png|gif|webp)$/i) || item.Url.includes('unsplash')) {
+          const img = document.createElement('img');
+          img.src = item.Url;
+          img.alt = item.Título || 'Imagem';
+          bloco.appendChild(img);
+        } else {
+          const link = document.createElement('a');
+          link.href = item.Url;
+          link.textContent = 'Ver mais';
+          bloco.appendChild(link);
+        }
+      }
+
+      container.appendChild(bloco);
+    });
+  } catch (err) {
+    container.innerHTML = "<p>Erro ao carregar dados: " + err.message + "</p>";
+  }
+}
+
+carregarConteudo();
+</script>
 
     <!-- Rodapé -->
     <footer>
