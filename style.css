@@ -73,7 +73,7 @@ footer {
 }
 
 .carros img {
-    width: 350px;
+    width: 200px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -87,7 +87,7 @@ footer {
 /* Ajuste para celular */
 @media (max-width: 768px) {
     .carros img {
-        width: 100%;
+        width: 70%;
         max-width: 90%;
     }
 }
