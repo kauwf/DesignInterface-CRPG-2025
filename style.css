@@ -79,10 +79,12 @@ footer {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.bloco-item:hover {
+/* Hover CORRETO no item */
+.bloco-item img:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }
+
 
 /* Ajuste para celular */
 @media (max-width: 768px) {
