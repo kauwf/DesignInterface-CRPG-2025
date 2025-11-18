@@ -301,11 +301,11 @@ h1 {
 }
 
 .tema-escuro header {
-  background-color: #0b1220;
+  background-color: #060c17;
 }
 
 .tema-escuro footer {
-  background-color: #0b1220;
+  background-color: #060c17;
   color: #e9eef5;
 }
 
@@ -324,7 +324,7 @@ h1 {
 
 /* Toggle no modo escuro */
 .tema-escuro .tema-toggle {
-  background: #374151;
+  background: #060c17;
 }
 
 .tema-escuro .tema-toggle .bolinha {
