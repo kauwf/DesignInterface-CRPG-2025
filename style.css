@@ -73,7 +73,7 @@ footer {
 }
 
 .bloco-item img {
-    width: 200px;
+    width: 150px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -87,8 +87,8 @@ footer {
 /* Ajuste para celular */
 @media (max-width: 768px) {
     .bloco-item {
-        width: 70%;
-        max-width: 90%;
+        width: 60%;
+        max-width: 70%;
     }
 }
 /* Estiliza os links como botões */
