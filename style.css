@@ -87,8 +87,8 @@ footer {
 /* Ajuste para celular */
 @media (max-width: 768px) {
     .carros img {
-        width: 70%;
-        max-width: 90%;
+        width: 50%;
+        max-width: 60%;
     }
 }
 /* Estiliza os links como botões */
