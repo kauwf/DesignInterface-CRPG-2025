@@ -89,8 +89,8 @@ footer {
 /* Ajuste para celular */
 @media (max-width: 768px) {
     .bloco-item {
-        width: 60%;
-        max-width: 70%;
+        width: 70%;
+        max-width: 90%;
     }
 }
 /* Estiliza os links como botões */
