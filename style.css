@@ -1,21 +1,50 @@
+/* ----------------------------------------------------
+   RESET GLOBAL
+---------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* Estilo geral */
+/* ----------------------------------------------------
+   ESTILO BASE DO SITE
+---------------------------------------------------- */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    padding: 0;
     background: linear-gradient(to right, #e3f2fd, #bbdefb);
     color: #333;
-    text-align: center;
+    line-height: 1.6;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-/* Cabeçalho mais moderno */
+/* Marca d'água IFPR */
+body::before {
+    content: "IFPR";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    font-size: 15vw;
+    font-weight: 900;
+    color: rgba(0, 85, 165, 0.1);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ----------------------------------------------------
+   CABEÇALHO
+---------------------------------------------------- */
 header {
     background: linear-gradient(135deg, #0d47a1, #1976d2);
-    color: white;
     padding: 20px 0;
     text-align: center;
+    color: white;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    position: relative;
 }
 
 header h2 {
@@ -32,38 +61,75 @@ header nav a {
     display: inline-block;
     color: #ffeb3b;
     margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
     padding: 6px 12px;
     border-radius: 6px;
-    transition: background-color 0.3s, color 0.3s;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
 header nav a:hover {
-    background-color: #ffeb3b;
+    background: #ffeb3b;
     color: #0d47a1;
 }
 
-/* Conteúdo principal */
+/* ----------------------------------------------------
+   CONTEÚDO
+---------------------------------------------------- */
 main {
     padding: 20px;
+    max-width: 600px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(44, 62, 80, 0.1);
 }
 
 main h1 {
+    text-align: center;
+    color: #0d47a1;
+    margin-bottom: 1.5rem;
+}
+
+/* Formulário */
+.contato-form {
+    max-width: 400px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contato-form label {
+    font-weight: bold;
     color: #0d47a1;
 }
 
-/* Rodapé */
-footer {
-    background-color: #eeeeee;
-    padding: 15px;
-    margin-top: 30px;
-    font-size: 0.9em;
-    color: #555;
-    box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
+.contato-form input,
+.contato-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
 }
 
-/* Galeria de carros */
+.contato-form button {
+    background: #0d47a1;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contato-form button:hover {
+    background: #1976d2;
+}
+
+/* ----------------------------------------------------
+   GALERIA
+---------------------------------------------------- */
 .bloco-item {
     display: flex;
     justify-content: center;
@@ -79,254 +145,147 @@ footer {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Hover CORRETO no item */
 .bloco-item img:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }
 
+/* ----------------------------------------------------
+   TABELAS
+---------------------------------------------------- */
+.table-wrap {
+    overflow-x: auto;
+    padding: 0 12px 24px;
+}
 
-/* Ajuste para celular */
+.dados-planilha {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.dados-planilha th {
+    background: linear-gradient(90deg, #0d47a1, #1976d2);
+    color: #fff;
+    padding: 10px;
+}
+
+.dados-planilha td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.dados-planilha tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.dados-planilha tr:hover {
+    background: #e3f2fd;
+}
+
+.info-msg {
+    text-align: center;
+    padding: 10px;
+}
+
+/* ----------------------------------------------------
+   LINKS COM ÍCONES (FILIAIS)
+---------------------------------------------------- */
+.filial a {
+    display: inline-flex;
+    align-items: center;
+    background: #0055a5;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.filial a:hover {
+    background: #003d73;
+}
+
+.filial a i {
+    margin-right: 8px;
+}
+
+/* ----------------------------------------------------
+   RODAPÉ
+---------------------------------------------------- */
+footer {
+    background: #eeeeee;
+    padding: 15px;
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #555;
+    text-align: center;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
+}
+
+/* ----------------------------------------------------
+   BOTÃO DE TEMA
+---------------------------------------------------- */
+.tema-toggle {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 50px;
+    height: 26px;
+    background: #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    transition: 0.25s;
+}
+
+.tema-toggle .bolinha {
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    transition: 0.25s;
+}
+
+/* ----------------------------------------------------
+   MODO ESCURO
+---------------------------------------------------- */
+.tema-escuro {
+    background: #0f1720;
+    color: #e9eef5;
+}
+
+.tema-escuro header,
+.tema-escuro footer {
+    background: #060c17;
+    color: #e9eef5;
+}
+
+.tema-escuro main {
+    background: #111821;
+}
+
+.tema-escuro .tema-toggle {
+    background: #060c17;
+}
+
+.tema-escuro .tema-toggle .bolinha {
+    transform: translateX(24px);
+}
+
+/* ----------------------------------------------------
+   RESPONSIVIDADE
+---------------------------------------------------- */
 @media (max-width: 768px) {
     .bloco-item {
         width: 70%;
         max-width: 90%;
     }
 }
-/* Estiliza os links como botões */
-.filial a {
-    display: inline-flex;
-    align-items: center;
-    background-color: #0055a5; /* cor azul IFPR */
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
 
-.filial a:hover {
-    background-color: #003d73;
-}
-
-/* Remove o estilo padrão do ícone para ficar alinhado */
-.filial a i {
-    margin-right: 8px;
-}
-
-/* Fundo com texto IFPR */
-body {
-    position: relative;
-    min-height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    overflow-x: hidden;
-}
-
-body::before {
-    content: "IFPR";
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-30deg);
-    font-size: 15vw;
-    font-weight: 900;
-    color: rgba(0, 85, 165, 0.1); /* azul claro transparente */
-    z-index: 0;
-    user-select: none;
-    pointer-events: none;
-}
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f7fa; /* fundo claro */
-    color: #333; /* texto escuro */
-    line-height: 1.6;
-}
-
-header {
-    background-color: #2c3e50; /* azul escuro */
-    padding: 1rem 2rem;
-    color: #ecf0f1; /* texto claro */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header h2 {
-    font-weight: 700;
-    font-size: 1.8rem;
-}
-
-nav a {
-    color: #ecf0f1;
-    text-decoration: none;
-    margin-left: 1.5rem;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: #FFFFFF; /* laranja para hover */
-}
-
-main {
-    max-width: 600px;
-    margin: 2rem auto;
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(44, 62, 80, 0.1);
-}
-
-h1 {
-    margin-bottom: 1.5rem;
-    color: #2c3e50;
-    text-align: center;
-}
-
-.contato-form {
-    max-width: 400px;
-    margin: 20px auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    text-align: left;
-}
-
-.contato-form label {
-    font-weight: bold;
-    color: #0d47a1;
-}
-
-.contato-form input,
-.contato-form textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1em;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.contato-form button {
-    background: #0d47a1;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 6px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.contato-form button:hover {
-    background: #1976d2;
-}
-.table-wrap {
-  max-width: 100%;
-  overflow-x: auto;
-  padding: 0 12px 24px;
-}
-
-.dados-planilha {
-  width: 100%;
-  border-collapse: collapse;
-  max-width: 900px;
-  margin: 0 auto;
-  background: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-}
-
-.dados-planilha th {
-  background: linear-gradient(90deg, #0d47a1, #1976d2);
-  color: #fff;
-  text-align: left;
-  padding: 10px;
-}
-
-.dados-planilha td {
-  padding: 8px 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-.dados-planilha tr:nth-child(even) {
-  background: #f9f9f9;
-}
-
-.dados-planilha tr:hover {
-  background: #e3f2fd;
-}
-
-.info-msg {
-  text-align: center;
-  padding: 10px;
-}
-/* ---------- Botão Toggle ---------- */
-.tema-toggle {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  width: 50px;
-  height: 26px;
-  background: #ddd;
-  border-radius: 20px;
-  cursor: pointer;
-  padding: 3px;
-  display: flex;
-  align-items: center;
-  transition: background 0.25s;
-}
-
-.tema-toggle .bolinha {
-  width: 20px;
-  height: 20px;
-  background: white;
-  border-radius: 50%;
-  transition: transform 0.25s;
-}
-/* ---------- TEMA ESCURO ---------- */
-.tema-escuro {
-  background-color: #0f1720;
-  color: #e9eef5;
-}
-
-.tema-escuro header {
-  background-color: #060c17;
-}
-
-.tema-escuro footer {
-  background-color: #060c17;
-  color: #e9eef5;
-}
-
-.tema-escuro .conteudo-scroll {
-  background: #111821;
-  border-color: #2a3645;
-}
-
-.tema-escuro .bloco-item {
-  border-color: #2a3645;
-}
-
-.tema-escuro .bloco-item h2 {
-  color: #8db0ff;
-}
-
-/* Toggle no modo escuro */
-.tema-escuro .tema-toggle {
-  background: #060c17;
-}
-
-.tema-escuro .tema-toggle .bolinha {
-  transform: translateX(24px);
-}
